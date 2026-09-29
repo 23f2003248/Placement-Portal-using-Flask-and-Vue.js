@@ -1,0 +1,22 @@
+# Environment variables
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+
+# Flask
+instance/
+
+# macOS
+.DS_Store
+
+# Celery
+celerybeat-schedule
+celerybeat-schedule-*
+dump.rdb
+
+# Node
+node_modules/

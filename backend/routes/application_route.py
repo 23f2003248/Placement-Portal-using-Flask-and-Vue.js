@@ -27,12 +27,10 @@ def application_register():
     if not drive:
         return jsonify({"error":"drive not found or not approved!"}), 404
     
-    # Block duplicate applications
     existing_app = Application.query.filter_by(student_id=curr_std.student_id, drive_id=drive.drive_id).first()
     if existing_app:
         return jsonify({"error":"You have already applied for this drive."}), 400
 
-    # Parse eligible branches
     eligible_branches = [b.strip().upper() for b in drive.elig_branch.replace(',', ' ').split() if b.strip()]
     student_branch = curr_std.branch.strip().upper()
 

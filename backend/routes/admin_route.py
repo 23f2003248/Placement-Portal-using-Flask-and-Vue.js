@@ -37,7 +37,7 @@ def admin_approve_drive(id):
         data = request.get_json()
         status = data.get('status')
         if status not in ['approved', 'rejected']:
-            return jsonify ({"error":"not valid status."}), 403
+            return jsonify ({"error":"invalid status."}), 403
         curr_drive.status = status
         db.session.commit()
         cache.clear()

@@ -160,7 +160,7 @@ def upload_resume():
         filepath = os.path.join(resumes_dir, filename)
         file.save(filepath)
         
-        student.resume = f"http://127.0.0.1:5000/static/resumes/{filename}"
+        student.resume = f"/static/resumes/{filename}"
         db.session.commit()
         cache.clear()
         return jsonify({"message": "Resume uploaded successfully", "resume_url": student.resume}), 200

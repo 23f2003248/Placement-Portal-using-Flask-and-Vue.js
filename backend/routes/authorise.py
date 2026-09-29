@@ -12,6 +12,7 @@ def login():
     data = request.get_json()
     email = data.get('email')
     password = data.get('password')
+    print(password)
 
     if not email or not password:
         return jsonify({"error":"all fields are required."}), 404
@@ -20,6 +21,9 @@ def login():
     if not user:
         return jsonify({"error": "user not found."}), 404
     
+    if user.is_active == False:
+        return jsonify({"error": "user blacklisted."}), 401
+    
     if check_password_hash(user.password, password):
         access_token = create_access_token(identity = email)
         return jsonify({
@@ -27,4 +31,5 @@ def login():
             "role": user.role,
             "id": user.id
             }), 200
+    
     return jsonify({"error":"password didnot match."}), 401
