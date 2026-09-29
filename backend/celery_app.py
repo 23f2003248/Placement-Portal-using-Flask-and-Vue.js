@@ -1,33 +1,43 @@
+import os
 from celery import Celery
+from celery.schedules import crontab
 
 def create_app():
     from flask import Flask
     from models import db
     from extensions import mail
-    from werkzeug.security import generate_password_hash
 
     app = Flask(__name__)
-    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///project.db"
+
+    database_url = os.getenv("DATABASE_URL")
+
+    if database_url:
+        if database_url.startswith("postgres://"):
+            database_url = database_url.replace("postgres://", "postgresql://", 1)
+        app.config["SQLALCHEMY_DATABASE_URI"] = database_url
+    else:
+        app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///project.db"
+
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['MAIL_SERVER'] = 'smtp.gmail.com'
     app.config['MAIL_PORT'] = 587
     app.config['MAIL_USE_TLS'] = True
     app.config['MAIL_USERNAME'] = 'nehutipvt@gmail.com'
-    app.config['MAIL_PASSWORD'] = 'ayji waak rgug hbsx'
+    app.config['MAIL_PASSWORD'] = os.getenv("MAIL_PASSWORD")
     app.config['MAIL_DEFAULT_SENDER'] = 'nehutipvt@gmail.com'
 
     db.init_app(app)
     mail.init_app(app)
+
     return app
+
 
 flask_app = create_app()
 
-from celery.schedules import crontab
-
 celery = Celery(
     'tasks',
-    broker='redis://localhost:6379/0',
-    backend='redis://localhost:6379/0'
+    broker=os.getenv("REDIS_URL"),
+    backend=os.getenv("REDIS_URL")
 )
 
 celery.conf.imports = ('tasks',)
