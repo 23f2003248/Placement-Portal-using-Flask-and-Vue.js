@@ -343,7 +343,7 @@
     try{
       const access_token = localStorage.getItem('access_token')
       const response = await axios.get(
-        "http://127.0.0.1:5000/student/all/",
+        "https://placement-portal-using-flask-and-vue-js.onrender.com/student/all/",
         {
           headers:{
             Authorization: `Bearer ${access_token}`
@@ -361,7 +361,7 @@
     try{
       const access_token = localStorage.getItem('access_token')
       const response = await axios.get(
-        "http://127.0.0.1:5000/drive/all/admin/",
+        "https://placement-portal-using-flask-and-vue-js.onrender.com/drive/all/admin/",
         {
           headers:{
             Authorization: `Bearer ${access_token}`
@@ -379,7 +379,7 @@
     try{
       const access_token = localStorage.getItem('access_token')
       const response = await axios.get(
-        "http://127.0.0.1:5000/company/all/",
+        "https://placement-portal-using-flask-and-vue-js.onrender.com/company/all/",
         {
           headers:{
             Authorization: `Bearer ${access_token}`
@@ -397,7 +397,7 @@
     try{
       const access_token = localStorage.getItem('access_token')
       const response = await axios.put(
-        `http://127.0.0.1:5000/admin/company/approve/${id}`,
+        `https://placement-portal-using-flask-and-vue-js.onrender.com/admin/company/approve/${id}`,
         {
           status: status
         },
@@ -419,7 +419,7 @@
     try{
       const access_token = localStorage.getItem('access_token')
       const response = await axios.put(
-        `http://127.0.0.1:5000/admin/drive/approve/${id}`,
+        `https://placement-portal-using-flask-and-vue-js.onrender.com/admin/drive/approve/${id}`,
         {
           status: status
         },
@@ -441,7 +441,7 @@
     try {
       const access_token = localStorage.getItem('access_token')
       const response = await axios.put(
-        `http://127.0.0.1:5000/admin/company/blacklist/${id}`,
+        `https://placement-portal-using-flask-and-vue-js.onrender.com/admin/company/blacklist/${id}`,
         {
           is_active: is_active
         },
@@ -462,7 +462,7 @@
     try {
       const access_token = localStorage.getItem('access_token')
       const response = await axios.put(
-        `http://127.0.0.1:5000/admin/student/blacklist/${id}`,
+        `https://placement-portal-using-flask-and-vue-js.onrender.com/admin/student/blacklist/${id}`,
         {
           is_active: is_active
         },
@@ -487,7 +487,7 @@
     try {
       const access_token = localStorage.getItem('access_token')
       const response = await axios.get(
-        `http://127.0.0.1:5000/admin/search/?q=${searchQuery.value}`,
+        `https://placement-portal-using-flask-and-vue-js.onrender.com/admin/search/?q=${searchQuery.value}`,
         {
           headers: {
             Authorization: `Bearer ${access_token}`

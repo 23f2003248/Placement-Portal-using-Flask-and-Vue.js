@@ -237,7 +237,7 @@
 
   async function fetch_company_profile() {
     try {
-      const response = await axios.get(`http://127.0.0.1:5000/company/${company_id}/`)
+      const response = await axios.get(`https://placement-portal-using-flask-and-vue-js.onrender.com/company/${company_id}/`)
       companyName.value = response.data.name
     } catch(err) {
       console.error(err)
@@ -248,7 +248,7 @@
     try{
       const access_token = localStorage.getItem('access_token')
       const response = await axios.get(
-        "http://127.0.0.1:5000/drive/company/",
+        "https://placement-portal-using-flask-and-vue-js.onrender.com/drive/company/",
         {
           headers:{
             Authorization: `Bearer ${access_token}`
@@ -272,7 +272,7 @@
     try{
       const access_token = localStorage.getItem('access_token')
       const response = await axios.get(
-        `http://127.0.0.1:5000/application/drive/${drive_id}`,
+        `https://placement-portal-using-flask-and-vue-js.onrender.com/application/drive/${drive_id}`,
         {
           headers:{
             Authorization : `Bearer ${access_token}`
@@ -290,7 +290,7 @@
     try{
       const access_token = localStorage.getItem('access_token')
       const response = await axios.put(
-        `http://127.0.0.1:5000/application/update/${app_id}`,
+        `https://placement-portal-using-flask-and-vue-js.onrender.com/application/update/${app_id}`,
         {
           status: status
         },
@@ -318,7 +318,7 @@
     try {
       const access_token = localStorage.getItem('access_token')
       const response = await axios.put(
-        `http://127.0.0.1:5000/application/update/${app_id}`,
+        `https://placement-portal-using-flask-and-vue-js.onrender.com/application/update/${app_id}`,
         {
           interview_date: inputElement.value
         },
@@ -342,7 +342,7 @@
     try {
       const access_token = localStorage.getItem('access_token')
       const response = await axios.delete(
-        `http://127.0.0.1:5000/drive/delete/${drive_id}`,
+        `https://placement-portal-using-flask-and-vue-js.onrender.com/drive/delete/${drive_id}`,
         {
           headers: {
             Authorization: `Bearer ${access_token}`

@@ -264,7 +264,7 @@
 
   async function fetch_profile() {
     try {
-      const response = await axios.get(`http://127.0.0.1:5000/student/${student_id}`)
+      const response = await axios.get(`https://placement-portal-using-flask-and-vue-js.onrender.com/student/${student_id}`)
       profile.value = response.data
     } catch (error) {
       console.error(error)
@@ -275,7 +275,7 @@
     try {
       const access_token = localStorage.getItem('access_token')
       const response = await axios.put(
-        `http://127.0.0.1:5000/student/update/${student_id}`,
+        `https://placement-portal-using-flask-and-vue-js.onrender.com/student/update/${student_id}`,
         {
           name: profile.value.name,
           email: profile.value.email,
@@ -307,7 +307,7 @@
       formData.append('resume', resumeFile.value)
       
       const response = await axios.post(
-        "http://127.0.0.1:5000/student/upload_resume",
+        "https://placement-portal-using-flask-and-vue-js.onrender.com/student/upload_resume",
         formData,
         {
           headers: {
@@ -328,7 +328,7 @@
     try{
       const access_token = localStorage.getItem('access_token')
       const response = await axios.get(
-        'http://127.0.0.1:5000/drive/all/',
+        'https://placement-portal-using-flask-and-vue-js.onrender.com/drive/all/',
         {
           headers: {
             Authorization:`Bearer ${access_token}`
@@ -346,7 +346,7 @@
     try{
       const access_token = localStorage.getItem('access_token')
       const response = await axios.post(
-        "http://127.0.0.1:5000/application/register",
+        "https://placement-portal-using-flask-and-vue-js.onrender.com/application/register",
         {
           drive_id: drive_id
         },
@@ -368,7 +368,7 @@
     try{
       const access_token = localStorage.getItem('access_token')
       const response = await axios.get(
-        'http://127.0.0.1:5000/application/my/',
+        'https://placement-portal-using-flask-and-vue-js.onrender.com/application/my/',
         {
           headers: {
             Authorization: `Bearer ${access_token}`
@@ -405,7 +405,7 @@
     try{
       const access_token = localStorage.getItem('access_token')
       const response = await axios.post(
-        'http://127.0.0.1:5000/application/export/',
+        'https://placement-portal-using-flask-and-vue-js.onrender.com/application/export/',
         {},
         {
           headers: {

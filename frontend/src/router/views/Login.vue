@@ -54,7 +54,7 @@
   async function login() {
     try{
       const response = await axios.post(
-        "http://127.0.0.1:5000/login", 
+        "https://placement-portal-using-flask-and-vue-js.onrender.com/login", 
         {
           email: email.value, 
           password: password.value,

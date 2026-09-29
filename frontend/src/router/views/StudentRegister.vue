@@ -107,7 +107,7 @@
   async function student_register() {
     try{
       const response = await axios.post(
-        "http://127.0.0.1:5000/student/register/",
+        "https://placement-portal-using-flask-and-vue-js.onrender.com/student/register/",
         {
           'name': name.value,
           'email': email.value,

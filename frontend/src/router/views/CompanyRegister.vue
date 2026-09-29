@@ -82,7 +82,7 @@
     console.log('started')
     try{
       const response = await axios.post(
-        "http://127.0.0.1:5000/company/register/",
+        "https://placement-portal-using-flask-and-vue-js.onrender.com/company/register/",
         {
           'name': name.value,
           'email': email.value,

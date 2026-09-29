@@ -175,7 +175,7 @@
 
       const access_token = localStorage.getItem('access_token')
       const response = await axios.post(
-        "http://127.0.0.1:5000/drive/register/",
+        "https://placement-portal-using-flask-and-vue-js.onrender.com/drive/register/",
         {
           job_title: job_title.value,
           job_desc: job_desc.value,
